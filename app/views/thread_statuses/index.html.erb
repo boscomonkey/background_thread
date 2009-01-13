@@ -1,0 +1,26 @@
+<h1>Listing thread_statuses</h1>
+
+<table>
+  <tr>
+  	<th>ID</th>
+    <th>Master?</th>
+    <th>Ping Count</th>
+	<th>Last Pinged</th>
+  </tr>
+
+<% for thread_status in @thread_statuses %>
+  <tr class="<%= row_css_class(@recent_updated, thread_status) %>">
+    <td><%=h thread_status.id %></td>
+    <td><%=h thread_status.is_master %></td>
+    <td><%=h thread_status.ping_count %></td>
+    <td><%=h thread_status.updated_at %></td>
+    <td><%= link_to 'Show', thread_status %></td>
+    <td><%= link_to 'Edit', edit_thread_status_path(thread_status) %></td>
+    <td><%= link_to 'Destroy', thread_status, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New thread_status', new_thread_status_path %>

@@ -1,0 +1,13 @@
+<p>
+  <b>Is master:</b>
+  <%=h @thread_status.is_master %>
+</p>
+
+<p>
+  <b>Ping count:</b>
+  <%=h @thread_status.ping_count %>
+</p>
+
+
+<%= link_to 'Edit', edit_thread_status_path(@thread_status) %> |
+<%= link_to 'Back', thread_statuses_path %>

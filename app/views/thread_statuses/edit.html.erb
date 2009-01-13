@@ -1,0 +1,20 @@
+<h1>Editing thread_status</h1>
+
+<% form_for(@thread_status) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :is_master %><br />
+    <%= f.check_box :is_master %>
+  </p>
+  <p>
+    <%= f.label :ping_count %><br />
+    <%= f.text_field :ping_count %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @thread_status %> |
+<%= link_to 'Back', thread_statuses_path %>

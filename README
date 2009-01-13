@@ -1,0 +1,35 @@
+background_thread code by Bosco So <rubymeetup _AT_ boscoso _DOT_ com>
+
+This code is designed to start up a background thread for a Rails app
+hosted on Heroku. This background thread executes a block of code once
+every 5 seconds. By storing the state of the thread in a database row,
+the code maintains only 1 master thread even if multiple threads are
+started; thus only 1 thread calls your block of code. If a master
+thread dies, then a non-master threads will promote itself to be a
+master thread and execute your block.
+
+This code is useful only for Heroku hosted apps, which do not have
+access to background processes like BackgrounDRB. If you're not
+running on Heroku, you should check out these articles on Rails and
+threading
+
+	http://delicious.com/boscomonkey/ruby+thread
+
+INSTALLATION
+
+- Copy these files into your rails directory
+- Run the migration
+- Look at the file config/initializers/start_thread_bureaucrat.rb for
+  an example of how to start a master thread
+  (a.k.a. ThreadBureaucrat). Alter the block in this file as per the
+  functionality you desire.
+
+TODO
+
+This should be a plugin. But Vijay wanted something NOW -
+http://tinyurl.com/7thf7t
+
+LICENSE
+
+Standard MIT license
+
